@@ -6,14 +6,14 @@ $method = $_SERVER['REQUEST_METHOD'];
 if ($method == 'POST') {
     
     $requestBody = file_get_contents('php://input');
-    $json        = json_decode($requestBody);
+    $json = json_decode($requestBody);
     
     $speech = "Primer mensaje";
     
-    $response              = new \stdClass();
-    $response->speech      = $speech;
+    $response = new \stdClass();
+    $response->speech= $speech;
     $response->displayText = $speech;
-    $response->source      = "webhook";
+    $response->source = "webhook";
     
     echo json_encode($response);
     
