@@ -20,7 +20,7 @@ if ($method == 'POST') {
     
     sleep(20);
     
-    echo json_encode($response);
+    echo json_encode($speech2);
     
 } else {
     echo "Method not allowed";
