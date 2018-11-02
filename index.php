@@ -15,7 +15,11 @@ if ($method == 'POST') {
     $response->displayText = $speech;
     $response->source = "webhook";
     
-    sleep(10);
+    sleep(4);
+    
+    echo json_encode($response);
+    
+    sleep(4);
     
     echo json_encode($response);
     
