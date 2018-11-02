@@ -11,18 +11,22 @@ if ($method == 'POST') {
     sleep(5);
     
     $speech = "Primer mensaje";
-    $speech2 = "Segundo mensaje";
     
     $response              = new \stdClass();
     $response->speech      = $speech;
     $response->displayText = $speech;
     $response->source      = "webhook";
     
-    echo json_encode($speech);
+    echo json_encode($response);
     
-    sleep(20);
+    sleep(5);
     
-    echo json_encode($speech2);
+    $speech2 = "Segundo mensaje";
+    
+    $response->speech      = $speech2;
+    $response->displayText = $speech2;
+    
+    echo json_encode($response);
     
 } else {
     
