@@ -15,7 +15,7 @@ if ($method == 'POST') {
     switch ($intent) {
         
         case 'Préstamo': 
-            $name = $json->result->parameters->any;
+            global $name = $json->result->parameters->any;
 			$speech = $name;
 			break;
 
