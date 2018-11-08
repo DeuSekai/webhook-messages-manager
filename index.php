@@ -1,43 +1,46 @@
 <?php
- 
+
 $method = $_SERVER['REQUEST_METHOD'];
- 
+
 // Process only when method is POST
 if ($method == 'POST') {
-   
-    $name = "Amigo";
-   
+    
     $requestBody = file_get_contents('php://input');
-    $json = json_decode($requestBody);
-   
+    $json        = json_decode($requestBody);
+    
     $intent = $json->result->metadata->intentName;
-   
+    
     switch ($intent) {
-	      
-	case 'Préstamo':
+        
+        case 'Préstamo':
             $name = $json->result->parameters->any;
+            setcookie("nombre", $name);
             $speech = $name;
             break;
- 
+        
         default:
-            $speech = $name;
+            If (isset($_COOKIE["nombre"])) {
+                $speech = $_COOKIE["nombre"];
+            } else {
+                $speech = " Parece que no pasó por la pagina inicial.";
+            }
             break;
-           
+            
     }
-   
-    $response = new \stdClass();
-    $response->speech= $speech;
+    
+    $response              = new \stdClass();
+    $response->speech      = $speech;
     $response->displayText = $speech;
-    $response->source = "webhook";
-   
+    $response->source      = "webhook";
+    
     sleep(2);
-   
+    
     echo json_encode($response);
-   
+    
 } else {
-   
+    
     echo "Method not allowed";
- 
+    
 }
- 
+
 ?> 
