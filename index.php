@@ -5,8 +5,6 @@ $method = $_SERVER['REQUEST_METHOD'];
 // Process only when method is POST
 if ($method == 'POST') {
     
-    session_start();
-    
     $requestBody = file_get_contents('php://input');
     $json        = json_decode($requestBody);
     
@@ -15,19 +13,19 @@ if ($method == 'POST') {
     switch ($intent) {
             
         case 'Default Welcome Intent':
-            if ($_SESSION["cookie"] == NULL) {
+            if ($_COOKIE["cookie"] == NULL) {
                 $speech = NULL;
             } else {
-                $valor = $_SESSION["cookie"];
+                $valor = $_COOKIE["cookie"];
                 $speech = "Hola {$valor}, ¿en qué puedo ayudarte?";
             }
             break;
          
         case 'Perfil inválido':
-            if ($_SESSION["cookie"] == NULL) {
+            if ($_COOKIE["cookie"] == NULL) {
                 $speech = NULL;
             } else {
-                $valor = $_SESSION["cookie"];
+                $valor = $_COOKIE["cookie"];
                 $speech = "Lo sentimos mucho {$valor} pero por el momento solo otorgamos préstamos a personas que cumplen con este perfil.\n¡Pero no te preocupes! Pronto nos pondremos en contacto con una empresa hermana para ayudarte a cumplir con lo que necesitas y ellos se comunicarán contigo :)\nPor favor deja en el siguiente mensaje tu nombre completo y un número de contacto para poder comunicarnos contigo :)";
             }
             break;
@@ -37,9 +35,8 @@ if ($method == 'POST') {
             //$day = 60 * 60 * 24 + time(); // en un día
             //$month = 60 * 60 * 24 * 30 + time(); // en un mes
             //$year = 60 * 60 * 24 * 365 + time(); // en un año
-            //setcookie('cookie','',time()-100);
-            //setcookie("cookie", $name/*,$month*/);
-            $_SESSION['cookie']  = $name;
+            setcookie('cookie','',time()-100);
+            setcookie("cookie", $name/*,$month*/);
             $speech = NULL;
             break;
         
