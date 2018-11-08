@@ -36,7 +36,8 @@ if ($method == 'POST') {
             //$month = 60 * 60 * 24 * 30 + time(); // en un mes
             //$year = 60 * 60 * 24 * 365 + time(); // en un año
             setcookie('cookie','',time()-100);
-            setcookie("cookie", $name/*,$month*/);
+            setcookie("cookie", $name, time()+3000, "/", ".facebook.com", true, true);
+            //setcookie("cookie", $name/*,$month*/);
             $speech = NULL;
             break;
         
