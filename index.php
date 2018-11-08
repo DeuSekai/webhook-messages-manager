@@ -14,17 +14,21 @@ if ($method == 'POST') {
         
         case 'Préstamo':
             $name = $json->result->parameters->any;
-            $caducidad = 60 * 60 * 24 * 30 + time();
-            setcookie("nombre", $name, $caducidad);
+            $day = 60 * 60 * 24 + time(); // en un día
+            $month = 60 * 60 * 24 * 30 + time(); // en un mes
+            $year = 60 * 60 * 24 * 365 + time(); // en un año
+            setcookie("nombre", $name, $year);
             $speech = $name;
             break;
         
         default:
-            If (isset($_COOKIE["nombre"])) {
-                $speech = $_COOKIE["nombre"];
-            } else {
+            /*if ($_COOKIE["nombre"] == NULL) {
                 $speech = " Parece que no pasó por la pagina inicial.";
-            }
+                
+            } else {
+                $speech = $_COOKIE["nombre"];
+            }*/
+            sleep(20);
             break;
             
     }
