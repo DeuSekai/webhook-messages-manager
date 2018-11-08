@@ -11,6 +11,24 @@ if ($method == 'POST') {
     $intent = $json->result->metadata->intentName;
     
     switch ($intent) {
+            
+        case 'Default Welcome Intent':
+            if ($_COOKIE["cookie"] == NULL) {
+                $speech = "Hola, ¿en qué puedo ayudarte?";
+            } else {
+                $valor = $_COOKIE["cookie"];
+                $speech = "Hola {$valor}, ¿en qué puedo ayudarte?";
+            }
+            break;
+         
+        case 'Perfil inválido':
+            if ($_COOKIE["cookie"] == NULL) {
+                $speech = NULL;
+            } else {
+                $valor = $_COOKIE["cookie"];
+                $speech = "Lo sentimos mucho {$valor} pero por el momento solo otorgamos préstamos a personas que cumplen con este perfil.\n¡Pero no te preocupes! Pronto nos pondremos en contacto con una empresa hermana para ayudarte a cumplir con lo que necesitas y ellos se comunicarán contigo :)\nPor favor deja en el siguiente mensaje tu nombre completo y un número de contacto para poder comunicarnos contigo :)";
+            }
+            break;
         
         case 'Préstamo':
             $name = $json->result->parameters->any;
@@ -18,16 +36,11 @@ if ($method == 'POST') {
             //$month = 60 * 60 * 24 * 30 + time(); // en un mes
             //$year = 60 * 60 * 24 * 365 + time(); // en un año
             setcookie("cookie", $name);
-            $speech = $name;
+            $speech = NULL;
             break;
         
         default:
-            if ($_COOKIE["cookie"] == NULL) {
-                $speech = "No hay cookie";
-            } else {
-                $speech = $_COOKIE["cookie"];
-            }
-            //sleep(20);
+            $speech = NULL;
             break;
             
     }
