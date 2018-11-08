@@ -16,7 +16,7 @@ if ($method == 'POST') {
         
         case 'Préstamo': 
             $name = $json->result->parameters->any;
-			$speech = "Tu nombre es " + $name;
+			$speech = $name;
 			break;
 
 		default:
