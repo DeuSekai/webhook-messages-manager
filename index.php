@@ -35,7 +35,7 @@ if ($method == 'POST') {
             //$day = 60 * 60 * 24 + time(); // en un día
             //$month = 60 * 60 * 24 * 30 + time(); // en un mes
             //$year = 60 * 60 * 24 * 365 + time(); // en un año
-            setcookie("cookie");
+            unset ($_COOKIE ["cookie"];
             setcookie("cookie", $name/*,$month*/);
             $speech = NULL;
             break;
