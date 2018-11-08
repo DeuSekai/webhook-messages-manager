@@ -22,13 +22,12 @@ if ($method == 'POST') {
             break;
         
         default:
-            /*if ($_COOKIE["nombre"] == NULL) {
-                $speech = " Parece que no pasó por la pagina inicial.";
-                
+            if ($_COOKIE["nombre"] == NULL) {
+                $speech = "No hay cookie";
             } else {
                 $speech = $_COOKIE["nombre"];
-            }*/
-            sleep(20);
+            }
+            //sleep(20);
             break;
             
     }
