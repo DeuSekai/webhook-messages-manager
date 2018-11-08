@@ -14,7 +14,7 @@ if ($method == 'POST') {
             
         case 'Default Welcome Intent':
             if ($_COOKIE["cookie"] == NULL) {
-                $speech = "Hola, ¿en qué puedo ayudarte?";
+                $speech = NULL;
             } else {
                 $valor = $_COOKIE["cookie"];
                 $speech = "Hola {$valor}, ¿en qué puedo ayudarte?";
@@ -35,7 +35,7 @@ if ($method == 'POST') {
             //$day = 60 * 60 * 24 + time(); // en un día
             //$month = 60 * 60 * 24 * 30 + time(); // en un mes
             //$year = 60 * 60 * 24 * 365 + time(); // en un año
-            
+            setcookie('cookie','',time()-100);
             setcookie("cookie", $name/*,$month*/);
             $speech = NULL;
             break;
