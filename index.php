@@ -35,7 +35,7 @@ if ($method == 'POST') {
             //$day = 60 * 60 * 24 + time(); // en un día
             //$month = 60 * 60 * 24 * 30 + time(); // en un mes
             //$year = 60 * 60 * 24 * 365 + time(); // en un año
-            setcookie("cookie", $name);
+            setcookie("cookie", $name/*,$month*/);
             $speech = NULL;
             break;
         
@@ -50,7 +50,7 @@ if ($method == 'POST') {
     $response->displayText = $speech;
     $response->source      = "webhook";
     
-    sleep(2);
+    sleep(3);
     
     echo json_encode($response);
     
