@@ -14,7 +14,8 @@ if ($method == 'POST') {
         
         case 'Préstamo':
             $name = $json->result->parameters->any;
-            setcookie("nombre", $name);
+            $caducidad = 60 * 60 * 24 * 30 + time();
+            setcookie("nombre", $name, $caducidad);
             $speech = $name;
             break;
         
