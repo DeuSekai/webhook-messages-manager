@@ -14,18 +14,18 @@ if ($method == 'POST') {
         
         case 'Préstamo':
             $name = $json->result->parameters->any;
-            $day = 60 * 60 * 24 + time(); // en un día
-            $month = 60 * 60 * 24 * 30 + time(); // en un mes
-            $year = 60 * 60 * 24 * 365 + time(); // en un año
-            setcookie("nombre", $name);
+            //$day = 60 * 60 * 24 + time(); // en un día
+            //$month = 60 * 60 * 24 * 30 + time(); // en un mes
+            //$year = 60 * 60 * 24 * 365 + time(); // en un año
+            setcookie("cookie", $name);
             $speech = $name;
             break;
         
         default:
-            if ($_COOKIE["nombre"] == NULL) {
+            if ($_COOKIE["cookie"] == NULL) {
                 $speech = "No hay cookie";
             } else {
-                $speech = $_COOKIE["nombre"];
+                $speech = $_COOKIE["cookie"];
             }
             //sleep(20);
             break;
