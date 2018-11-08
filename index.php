@@ -5,10 +5,25 @@ $method = $_SERVER['REQUEST_METHOD'];
 // Process only when method is POST
 if ($method == 'POST') {
     
+    $name = "Amigo";
+    
     $requestBody = file_get_contents('php://input');
     $json = json_decode($requestBody);
     
-    $speech = "Primer mensaje";
+    $intent = $json->result->metadata->intentName;
+   
+    switch ($intent) {
+        
+        case 'Préstamo': 
+            $name = $json->result->parameters->any;
+			$speech = "Tu nombre es " + $name;
+			break;
+
+		default:
+			$speech = $name;
+			break;
+            
+	}
     
     $response = new \stdClass();
     $response->speech= $speech;
