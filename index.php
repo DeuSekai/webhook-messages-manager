@@ -27,6 +27,10 @@ if ($method == 'POST') {
             if ($_SESSION["test"] == NULL) {
                 $speech = NULL;
             } else {
+                // remove all session variables
+                session_unset();
+                // destroy the session
+                //session_destroy();
                 $valor = $_SESSION["test"];
                 $speech = "Lo sentimos mucho {$valor} pero por el momento solo otorgamos préstamos a personas que cumplen con este perfil.\n¡Pero no te preocupes! Pronto nos pondremos en contacto con una empresa hermana para ayudarte a cumplir con lo que necesitas y ellos se comunicarán contigo :)\nPor favor deja en el siguiente mensaje tu nombre completo y un número de contacto para poder comunicarnos contigo :)";
             }
