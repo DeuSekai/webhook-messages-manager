@@ -12,7 +12,7 @@ if ($method == 'POST') {
     $response->source      = "webhook";
     
     //2 seconds delay
-    sleep(2);
+    sleep(3);
     
     echo json_encode($response);
     
