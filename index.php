@@ -6,12 +6,11 @@ $method = $_SERVER['REQUEST_METHOD'];
 if ($method == 'POST') {
   
     $response              = new \stdClass();
-    $speech = NULL;
-    $response->speech      = $speech;
-    $response->displayText = $speech;
+    $response->speech      = NULL;
+    $response->displayText = NULL;
     $response->source      = "webhook";
     
-    //2 seconds delay
+    //4 seconds delay
     sleep(4);
     
     echo json_encode($response);
