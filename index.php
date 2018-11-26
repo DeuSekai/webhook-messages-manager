@@ -15,7 +15,7 @@ if ($method == 'POST') {
         case 'Default Welcome Intent':
             // Set language in Spanish
             setlocale(LC_ALL,"es_ES");
-            $day = date("l");
+            $day = strftime("%A");
             $speech = "¡Feliz {$day}!\n\nDeja te platico sobre nuestros préstamos :D\n\nNuestros préstamos son para jubilados y pensionados, trabajadores del sector salud, de la educación y del gobierno.\n\nNuestros requisitos son:\n\n1.- Identificación oficial\n2.- Comprobante de domicilio\n3.- Comprobante de ingresos\n\n¡En Préstamo Feliz no necesitas aval además de que no checamos buró!\n\nTe recordamos que nuestros tramites son totalmente gratuitos.";
             break;
         
