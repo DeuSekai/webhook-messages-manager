@@ -12,7 +12,7 @@ if ($method == 'POST') {
     
     switch ($text) {
         
-        case 'Default Welcome Intent':
+        case 'Saludo inicial inbox':
             $week   = array(
                 "Domingo",
                 "Lunes",
