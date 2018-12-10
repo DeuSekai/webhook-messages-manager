@@ -1,3 +1,5 @@
+<?php
+
 if($update["result"]["action"] == "sayHello"){
         sendMessage(array(
             "source" => $update["result"]["source"],
@@ -17,3 +19,4 @@ $update = json_decode($update_response, true);
 if (isset($update["result"]["action"])) {
     processMessage($update);
 }
+?>
