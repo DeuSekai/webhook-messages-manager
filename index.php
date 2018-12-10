@@ -1,6 +1,7 @@
 <?php
 
-if($update["result"]["action"] == "sayHello"){
+
+ if($update["result"]["action"] == "sayHello"){
         sendMessage(array(
             "source" => $update["result"]["source"],
             "speech" => "Hello from webhook",
@@ -16,7 +17,9 @@ function sendMessage($parameters) {
  
 $update_response = file_get_contents("php://input");
 $update = json_decode($update_response, true);
-if (isset($update["queryR"]["action"])) {
+if (isset($update["result"]["action"])) {
     processMessage($update);
 }
+
+
 ?>
